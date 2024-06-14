@@ -1,23 +1,9 @@
-#include <stdio.h>
+def reverse_number(n, rev=0):
+    if n == 0:
+        return rev
+    else:
+        return reverse_number(n // 10, rev * 10 + n % 10)
 
-int reverse = 0;
-
-void findReverse(int num) {
-    if (num == 0) {
-        return;
-    }
-    reverse = reverse * 10 + num % 10;
-    findReverse(num / 10);
-}
-
-int main() {
-    int number;
-    printf("Enter a number: ");
-    scanf("%d", &number);
-    
-    findReverse(number);
-    
-    printf("Reverse of the number: %d", reverse);
-    
-    return 0;
-}
+number = 12345
+reversed_number = reverse_number(number)
+print(f"The reverse of {number} is: {reversed_number}")
