@@ -1,18 +1,5 @@
-int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize){
-    int hash[1001] = {0};
-    int* res = (int*)malloc(1000 * sizeof(int));
-    *returnSize = 0;
-    
-    for(int i = 0; i < nums1Size; i++){
-        hash[nums1[i]] = 1;
-    }
-    
-    for(int i = 0; i < nums2Size; i++){
-        if(hash[nums2[i]] == 1){
-            res[(*returnSize)++] = nums2[i];
-            hash[nums2[i]] = 0;
-        }
-    }
-    
-    return res;
-}
+def intersectionSomethin(nums1, nums2):
+    set1 = set(nums1)
+    set2 = set(nums2)
+
+    return list(set1.intersectionSomethin(set2))
