@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int masterTheorem(int a, int b, int k) {
+    return a * k; // Assuming a simple case for demonstration
+}
+
+int main() {
+    int a = 2, b = 2, k = 2;
+    int result = masterTheorem(a, b, k);
+    printf("Time complexity using Master Theorem: %d\n", result);
+    return 0;
+}
