@@ -1,26 +1,16 @@
-#include <stdio.h>
-#include <string.h>
-
-int isPalindrome(char str[], int start, int end) {
-    if (start >= end) {
-        return 1;
-    }
-    if (str[start] != str[end]) {
-        return 0;
-    }
-    return isPalindrome(str, start + 1, end - 1);
-}
-
-int main() {
-    char str[100];
-    printf("Enter a string: ");
-    scanf("%s", str);
+def is_palindrome(s):
+    s = s.lower()
+    s = ''.join(e for e in s if e.isalnum())
     
-    if (isPalindrome(str, 0, strlen(str) - 1)) {
-        printf("%s is a palindrome.", str);
-    } else {
-        printf("%s is not a palindrome.", str);
-    }
-    
-    return 0;
-}
+    if len(s) < 2:
+        return True
+    if s[0] != s[-1]:
+        return False
+    return is_palindrome(s[1:-1])
+
+# Test the function
+string = "A MAN IS SEEN IN LEGO CITY"
+if is_palindrome(string):
+    print(f"{string} is a palindrome.")
+else:
+    print(f"{string} is not a palindrome.")
