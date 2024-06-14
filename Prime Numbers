@@ -1,31 +1,16 @@
-#include <stdio.h>
+def is_prime(n, i=2):
+    if n <= 2:
+        return True if n == 2 else False
+    if n % i == 0:
+        return False
+    if i * i > n:
+        return True
+    return is_prime(n, i + 1)
 
-int isPrime(int num, int i) {
-    if (i == 1) {
-        return 1;
-    } else {
-        if (num % i == 0) {
-            return 0;
-        } else {
-            return isPrime(num, i - 1);
-        }
-    }
-}
+def generate_primes(n):
+    if n > 1:
+        generate_primes(n - 1)
+        if is_prime(n):
+            print(n)
 
-void generatePrimes(int n) {
-    if (n > 1) {
-        if (isPrime(n, n / 2) == 1) {
-            printf("%d ", n);
-        }
-        generatePrimes(n - 1);
-    }
-}
-
-int main() {
-    int limit;
-    printf("Enter the limit: ");
-    scanf("%d", &limit);
-    printf("Prime numbers up to %d are: ", limit);
-    generatePrimes(limit);
-    return 0;
-}
+generate_primes(20)
