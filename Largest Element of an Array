@@ -2,7 +2,7 @@ def find_largest_element(arr):
     return max(arr)
 
 array = [10, 5, 20, 8, 15]
-sollu da
+
 
 largest_element = find_largest_element(array)
 
