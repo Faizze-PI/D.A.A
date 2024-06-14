@@ -1,22 +1,11 @@
-#include <stdio.h>
+def copy_string(source, destination, index=0):
+    if index == len(source):
+        return destination
+    destination += source[index]
+    return copy_string(source, destination, index + 1)
 
-void copyString(char *source, char *destination) {
-    if (*source == '\0') {
-        *destination = '\0';
-        return;
-    }
-    *destination = *source;
-    copyString(source + 1, destination + 1);
-}
-
-int main() {
-    char source[] = "Hello, World!";
-    char destination[50];
-
-    copyString(source, destination);
-
-    printf("Source String: %s\n", source);
-    printf("Copied String: %s\n", destination);
-
-    return 0;
-}
+# Test the function
+source_str = "Hello, World!"
+destination_str = ""
+result = copy_string(source_str, destination_str)
+print(result)
