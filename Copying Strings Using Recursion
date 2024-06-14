@@ -4,8 +4,7 @@ def copy_string(source, destination, index=0):
     destination += source[index]
     return copy_string(source, destination, index + 1)
 
-# Test the function
-source_str = "Hello, World!"
+source_str = "Hello, machan!"
 destination_str = ""
 result = copy_string(source_str, destination_str)
 print(result)
