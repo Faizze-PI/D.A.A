@@ -1,0 +1,23 @@
+V = 4
+graph = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+VISITED_ALL = (1 << V) - 1
+
+def tsp(mask, pos):
+    if mask == VISITED_ALL:
+        return graph[pos][0]
+    min_cost = 99999
+    for city in range(V):
+        if (mask & (1 << city)) == 0:
+            new_cost = graph[pos][city] + tsp(mask | (1 << city), city)
+            if new_cost < min_cost:
+                min_cost = new_cost
+    return min_cost
+
+mask = 1
+pos = 0
+print(f"The minimum cost of the Travelling Salesman Problem is: {tsp(mask, pos)}")
