@@ -1,0 +1,49 @@
+def ks(n, weig, prof, cap):
+    x = [0.0] * 20
+    tp = 0.0
+    u = cap
+    for i in range(n):
+        x[i] = 0.0
+    for i in range(n):
+        if weig[i] > u:
+            break
+        else:
+            x[i] = 1.0
+            tp += prof[i]
+            u -= weig[i]
+    if i < n:
+        x[i] = u / weig[i]
+    tp += x[i] * prof[i]
+    print("The result vector is:")
+    for i in range(n):
+        print(x[i], end=" ")
+    print("\nThe maximum profit is:", tp)
+
+n = int(input("Enter the number of items: "))
+weig = [0.0] * 20
+prof = [0.0] * 20
+ratio = [0.0] * 20
+cap = 0.0
+total_profit = 0.0
+
+print("Enter the weights and profits of each item:")
+for i in range(n):
+    weig[i], prof[i] = map(float, input().split())
+    ratio[i] = prof[i] / weig[i]
+
+cap = float(input("Enter the capacity of the knapsack: "))
+
+for i in range(n):
+    for j in range(i + 1, n):
+        if ratio[i] < ratio[j]:
+            temp = ratio[j]
+            ratio[j] = ratio[i]
+            ratio[i] = temp
+            temp = weig[j]
+            weig[j] = weig[i]
+            weig[i] = temp
+            temp = prof[j]
+            prof[j] = prof[i]
+            prof[i] = temp
+
+ks(n, weig, prof, cap)
